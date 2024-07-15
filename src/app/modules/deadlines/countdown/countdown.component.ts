@@ -4,7 +4,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import { ToasterService } from 'angular2-toaster';
+import { ToastrService } from 'ngx-toastr';
 import { interval, takeWhile } from 'rxjs';
 import {
   DayType,
@@ -29,7 +29,8 @@ export class CountDownComponent implements OnInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
-    public deadlineService: DeadlinesService
+    private deadlineService: DeadlinesService,
+    private toastrService:ToastrService 
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +50,8 @@ export class CountDownComponent implements OnInit {
       this.setEndDate();
       this.countdownObserver();
       this.cdr.markForCheck();
+    }, err => {
+      this.toastrService.error('Error occured while fetching data');
     });
   }
 
@@ -61,10 +64,11 @@ export class CountDownComponent implements OnInit {
           this.cdr.markForCheck();
         },
         (err) => {
-          const errMsg = err || 'Error occured while fetching data';
+          this.toastrService.error('Error occured while countdown');
         },
         () => {
           if (!(this.data.secondsLeft > 0)) {
+            this.toastrService.success('Countdown completed!');
           }
         }
       );

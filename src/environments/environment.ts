@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl : 'https://mp34281b42fe6f9346b9.free.beeceptor.com',
+  baseUrl : 'https://mp176fd4bd84e35e0414.free.beeceptor.com',
   production: false
 };
 

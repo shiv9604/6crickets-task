@@ -4,7 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToasterModule, ToasterService } from 'angular2-toaster';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -15,9 +18,12 @@ import { ToasterModule, ToasterService } from 'angular2-toaster';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ToasterModule.forRoot()
+    LoadingBarModule,
+    LoadingBarRouterModule,
+    LoadingBarHttpClientModule, 
+    ToastrModule.forRoot({})
   ],
-  providers: [ToasterService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

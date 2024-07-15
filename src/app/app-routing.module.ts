@@ -8,9 +8,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/deadlines',
+    redirectTo: 'deadlines',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    redirectTo : 'deadlines'
+  }
 ];
 
 @NgModule({
