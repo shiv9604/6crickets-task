@@ -1,0 +1,19 @@
+<div class="container mt-5 bg-light rounded p-4" *ngIf="data">
+    <div class="heading">
+        <p class="h2">
+            Countdown
+        </p>
+        <div class="live-time">
+            <p class="">Deadline : {{endDate}}</p>
+            <p class="">Seconds left to deadline : {{data.secondsLeft}}</p>
+            </div>
+    </div>
+    <hr class="mt-2 opacity-25">
+    <div class="lead">
+        <p>Redmond, Washington Time - Pacific Daylight Time (PDT)</p>
+    </div>
+    <div class="lead" *ngIf="!(data.secondsLeft>0)">
+        <p class="text-danger">Deadline Crossed</p>
+    </div>
+    <p *ngIf="data.secondsLeft>0">Please wait for 60 seconds countdown for after countdown scenarios</p>
+</div>
